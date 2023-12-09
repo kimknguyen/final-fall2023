@@ -40,7 +40,7 @@ export default function MyApp( { Component, pageProps }) {
             }); 
 
 
-    }, []); 
+    }, [setError, setIsLoggedIn, setUserInformation]); 
 
     const loginUser = useCallback((e) => {
         e.preventDefault(); 
@@ -67,7 +67,7 @@ export default function MyApp( { Component, pageProps }) {
 
         })
 
-    }, [] ); 
+    }, [setError, setIsLoggedIn, setUserInformation] ); 
 
     const logoutUser = useCallback(() => {
         const auth = getAuth(); 
