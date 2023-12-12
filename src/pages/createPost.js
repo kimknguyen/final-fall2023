@@ -1,8 +1,8 @@
-import { useEffect } from "react"; 
+import { useCallback, useEffect } from "react"; 
 import { useRouter } from "next/router";
-import Header from "@/app/components/Header";  
 import CreatePostForm from "@/app/components/CreatePostForm"
-import {getFirestore, collection, setDoc} from "firebase/firestore"; 
+import {getFirestore, collection, setDoc, addDoc} from "firebase/firestore"; 
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"; 
 
 export default function CreatePost ( { isLoggedIn, userInformation } ) {
 
@@ -13,18 +13,34 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
     }, [isLoggedIn]); 
 
     const createPostFunction = useCallback(
-        async(e) => {
+        async(e, imageUpload) => {
         e.preventDefault(); 
+
+        const storage = getStorage(); 
+        const db = getFirestore();
+
         const postContent = e.currentTarget.postContent.value; 
-        console.log({postContent}); 
+        //console.log({postContent}); 
 
-
+        let imageURL; 
+        const storageRef = ref(storage, imageUpload.name); 
+        
+        await uploadBytes(storageRef, imageUpload)
+            .then(async (snapshot) => {
+                await getDownloadURL(snapshot.ref).then((url) => {
+                    imageURL = url; 
+                }); 
+            })
+            .catch((error) => {
+                console.warn(error); 
+            }); 
+        
         const userId = userInformation.uid; 
 
-        const db = getFirestore();
-        await setDoc(doc(db, "posts"), {
+        const data = await addDoc(collection(db, "posts"), {
             postContent: postContent, 
-            usedId: userId
+            usedId: userId, 
+            imageURL
         }); 
 
         if(data) {
