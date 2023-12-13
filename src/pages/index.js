@@ -23,7 +23,7 @@ export default function Dashboard( { isLoggedIn }) {
                 postsArray.push({ id: post.id, ...post.data()}); 
             }); 
 
-            setAllPosts(postArray); 
+            setAllPosts(postsArray); 
         }
 
         getAllPosts(); 
