@@ -20,11 +20,16 @@ export default function UserProfile( { isLoggedIn, loginInformation }) {
 
     useEffect(() => {
         async function getUser() {
+
+            if(!loginInformation?.uid) {
+                return; 
+            }
+
             let user = {}; 
             const db = getFirestore(); 
             const q = query(
-                collection(db, "users"), 
-                where("userId", "==",loginInformation?.uid)
+                collection(db, "users"),
+                where("userId", "==",loginInformation.uid)
                 ); 
             //user = userQuery.data(); 
             //console.log({ user }); 
@@ -34,10 +39,10 @@ export default function UserProfile( { isLoggedIn, loginInformation }) {
                 user = doc.data(); 
             }); 
 
-            if(loginInformation) {
+            //if(loginInformation) {
                 setUser(user); 
 
-            }
+            //}
 
         }
 

@@ -10,9 +10,6 @@ const CreatePostForm = ( { createPostFunction }) => {
             <form className={styles.form} onSubmit={(e) => createPostFunction(e, imageUpload)}>
                 <label htmlFor= "postContent">Post Content</label>
                 <input type="text" id="postContent" name="postContent" />
-
-                <label htmlFor= "postContent">Favorite Song</label>
-                <input type="text" id="postContent" name="postContent" />
                 
                 <label htmlFor="image">Image</label>
                 <input
