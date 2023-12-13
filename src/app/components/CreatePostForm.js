@@ -8,8 +8,15 @@ const CreatePostForm = ( { createPostFunction }) => {
         <div>
             <h2>Create Post Form</h2>
             <form className={styles.form} onSubmit={(e) => createPostFunction(e, imageUpload)}>
-                <label htmlFor= "postContent">Post Content</label>
+                <label htmlFor= "postContent">Artist</label>
                 <input type="text" id="postContent" name="postContent" />
+
+                <label htmlFor= "favoriteSong"> Favorite Song</label>
+                <input type="text" id="favoriteSong" name="favoriteSong" />
+
+                <label htmlFor= "experience"> Your Experience</label>
+                <input type="text" id="experience" name="experience" placeholder="Share your experience and favorite moments of the show" />
+
                 
                 <label htmlFor="image">Image</label>
                 <input

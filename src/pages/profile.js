@@ -21,20 +21,17 @@ export default function UserProfile( { isLoggedIn, loginInformation }) {
     useEffect(() => {
         async function getUser() {
 
-            if(!loginInformation?.uid) {
-                return; 
-            }
+           // if(!loginInformation?.uid) {
+             //   return; 
+           // }
 
             let user = {}; 
             const db = getFirestore(); 
-            const q = query(
-                collection(db, "users"),
-                where("userId", "==",loginInformation.uid)
-                ); 
+            const q = query(collection(db, "users"), where("userId", "==",loginInformation.uid)); 
             //user = userQuery.data(); 
             //console.log({ user }); 
             //setUser(user); 
-            const queryShanpshot = await getDocs(q); 
+            const querySnapshot = await getDocs(q); 
             querySnapshot.forEach((doc) => {
                 user = doc.data(); 
             }); 
@@ -45,8 +42,7 @@ export default function UserProfile( { isLoggedIn, loginInformation }) {
             //}
 
         }
-
-        getUser(); 
+       getUser(); 
     }, [loginInformation]); 
 
     return (

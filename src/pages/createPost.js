@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react"; 
 import { useRouter } from "next/router";
 import CreatePostForm from "@/app/components/CreatePostForm"
-import {getFirestore, collection, setDoc, addDoc} from "firebase/firestore"; 
+import {getFirestore, collection, addDoc} from "firebase/firestore"; 
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"; 
 
 export default function CreatePost ( { isLoggedIn, userInformation } ) {
@@ -21,6 +21,8 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
 
         const postContent = e.currentTarget.postContent.value; 
         //console.log({postContent}); 
+        const favoriteSong = e.currentTarget.favoriteSong.value; 
+        const experience = e.currentTarget.experience.value; 
 
         let imageURL; 
         const storageRef = ref(storage, imageUpload.name); 
@@ -39,8 +41,10 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
 
         const data = await addDoc(collection(db, "posts"), {
             postContent: postContent, 
+            favoriteSong: favoriteSong, 
+            experience: experience, 
             usedId: userId, 
-            imageURL
+            imageURL, 
         }); 
 
         if(data) {
@@ -58,7 +62,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
 
         <main>
             <h1>Create Post</h1>
-            <CreatePostForm/> 
+            <CreatePostForm createPostFunction={createPostFunction}/> 
         </main>
 
         </>

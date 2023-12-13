@@ -26,3 +26,15 @@
     border: 1px solid black; 
     padding: 20px; 
 }
+
+.PostCard{
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+.PostCardWrapper img {
+    height: auto; 
+    width: 100%; 
+}
+
