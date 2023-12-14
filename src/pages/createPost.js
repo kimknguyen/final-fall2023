@@ -1,12 +1,14 @@
-import { useCallback, useEffect } from "react"; 
+import { useCallback, useEffect, useState } from "react"; 
 import { useRouter } from "next/router";
 import CreatePostForm from "@/app/components/CreatePostForm"
 import {getFirestore, collection, addDoc} from "firebase/firestore"; 
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"; 
+import PostDetails from "@/app/components/PostDetails"
 
 export default function CreatePost ( { isLoggedIn, userInformation } ) {
 
     const router = useRouter(); 
+    const [createdPost, setCreatedPost] = useState(null); 
     
     useEffect(() => {
         if (!isLoggedIn) router.push("/"); 
@@ -23,6 +25,10 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         //console.log({postContent}); 
         const favoriteSong = e.currentTarget.favoriteSong.value; 
         const experience = e.currentTarget.experience.value; 
+
+        console.log("postContent:", postContent);
+        console.log("favoriteSong:", favoriteSong);
+        console.log("experience:", experience);
 
         let imageURL; 
         const storageRef = ref(storage, 'images/' + imageUpload?.name); 
@@ -48,6 +54,12 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         }); 
 
         if(data) {
+
+            setCreatedPost({
+                postContent, 
+                favoriteSong, 
+                experience, 
+            }); 
             router.push("/"); 
         }
         
@@ -63,6 +75,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         <main>
             <h1>Create Post</h1>
             <CreatePostForm createPostFunction={createPostFunction}/> 
+            {createdPost && <PostDetails post={createdPost}/>}
         </main>
 
         </>
