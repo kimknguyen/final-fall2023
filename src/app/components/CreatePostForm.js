@@ -54,7 +54,7 @@ const CreatePostForm = ( { createPostFunction }) => {
                 />
                 
 
-                <button type= "submit">Create Post</button>            
+                <button className={styles.button} type= "submit">Create Post</button>            
             </form>
         </div>
     )
