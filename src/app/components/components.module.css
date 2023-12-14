@@ -2,16 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
 .button{
-    background-color: #4caf50;
-    color: white;
+    background-color: rgb(241, 204, 210);
+    color: rgb(238, 49, 175);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+   
 
 }
 .button:hover{
-    background-color: blue;
+    background-color: aliceblue;
 }
 
 .customSub {
@@ -21,10 +22,6 @@
                      
 
     }
-       
-
-
-
 
 
 
@@ -40,7 +37,9 @@
     align-items: center;
     display: flex; 
     justify-content: flex-end;
-    padding: 10px 25px; 
+    padding: 20px 15px; 
+    background-image: url('https://www.bhmpics.com/downloads/lined-paper-background/15.white-crumpled-lined-paper-background_53876-150112.jpg');
+    background-size: cover;
 
 }
 
@@ -51,8 +50,8 @@
     font-size: 20px; 
     font-weight: bold;
     margin: 1 auto; 
-    padding: 5px; 
     text-decoration: none;
+    padding: 20px 15px; 
 
 }
 
@@ -81,6 +80,9 @@
 
 
 .PostCard{
+    background-image: url('https://i.pinimg.com/564x/0e/73/ea/0e73ea2201f333b2267086862f608cf3.jpg'); 
+    background-size: cover;
+    background-position: center center;
     display: block; 
     flex-wrap: wrap; 
     gap: 20px; 
@@ -96,6 +98,7 @@
 .PostCard p {
     font-size: 22 px;
     font-family: 'Rock Salt', cursive; 
+    margin: 50px; 
 }
 
 .PostCardWrapper img {

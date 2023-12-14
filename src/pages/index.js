@@ -42,6 +42,9 @@ export default function Dashboard( { isLoggedIn }) {
                          font-size: 115px; 
                          text-align: center; 
                          padding: 10px; 
+                         background-image: url('https://www.bhmpics.com/downloads/lined-paper-background/15.white-crumpled-lined-paper-background_53876-150112.jpg');
+                         background-size: cover;
+                         
           }
         `}
                 </style>
