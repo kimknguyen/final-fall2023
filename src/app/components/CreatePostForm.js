@@ -12,10 +12,10 @@ const CreatePostForm = ( { createPostFunction }) => {
                 <input type="text" id="postContent" name="postContent" />
 
                 <label htmlFor= "favoriteSong"> Favorite Song</label>
-                <input type="text" id="favoriteSong" name="favoriteSong" />
+                <input type="text" id="postContent" name="favoriteSong" />
         
                 <label htmlFor= "experience"> Your Experience</label>
-                <input type="text" id="experience" name="experience" placeholder="Share your experience and favorite moments of the show" />
+                <input type="text" id="postContent" name="experience" placeholder="Share your experience and favorite moments of the show" />
 
                 
                 <label htmlFor="image">Image</label>

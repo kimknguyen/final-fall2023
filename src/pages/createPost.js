@@ -31,7 +31,8 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         console.log("experience:", experience);
 
         let imageURL; 
-        const storageRef = ref(storage, 'images/' + imageUpload?.name); 
+        //const storageRef = ref(storage, 'images/' + imageUpload?.name); 
+        const storageRef = ref(storage, imageUpload.name);
         
         await uploadBytes(storageRef, imageUpload)
             .then(async (snapshot) => {
@@ -75,7 +76,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         <main>
             <h1>Create Post</h1>
             <CreatePostForm createPostFunction={createPostFunction}/> 
-            {createdPost && <PostDetails post={createdPost}/>}
+            <PostDetails post={createdPost} />
         </main>
 
         </>
