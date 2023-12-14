@@ -1,6 +1,7 @@
 import { useEffect } from "react"; 
 import { useRouter } from "next/router"; 
 import CreateUserForm from "@/app/components/CreateUserForm"
+import styles from "../app/components/components.module.css"
 
 
 export default function Create( { createUser, isLoggedIn } ) {
@@ -16,7 +17,7 @@ export default function Create( { createUser, isLoggedIn } ) {
         <>
 
         <main>
-            <h1>Create User</h1>
+            <h1 className={styles.customSubHeading}>Create User</h1>
             <CreateUserForm createUser={createUser}/> 
         </main>
 

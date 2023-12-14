@@ -19,7 +19,7 @@ const Header = ({ isLoggedIn, logoutUser }) => {
                 {!isLoggedIn && (
                     <>
                         <Link href="/login">Login</Link>
-                        <Link href="/createUser">Create User</Link>
+                        <Link href="/createUser">CreateUser</Link>
                       
                     
                     </>

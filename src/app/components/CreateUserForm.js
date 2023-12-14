@@ -4,7 +4,7 @@ import styles from "./components.module.css";
 const CreateUserForm = ( { createUser }) => {
     return (
         <div>
-            <h2>Create User Form</h2>
+            <h2 className={styles.customSub}>Document your Concert Experience. Make an Account Now!</h2>
             <form className={styles.form} onSubmit={(e) => createUser(e)}>
                 <label htmlFor= "name">Name</label>
                 <input type="text" name="name" />
@@ -15,7 +15,7 @@ const CreateUserForm = ( { createUser }) => {
                 <label htmlFor= "password">Password</label>
                 <input type="password" name="password" />
 
-                <button type= "submit">Create User</button>            
+                <button className={styles.button} type= "submit">Create User</button>            
             </form>
         </div>
     )
