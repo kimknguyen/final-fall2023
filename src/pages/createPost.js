@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import CreatePostForm from "@/app/components/CreatePostForm"
 import {getFirestore, collection, addDoc} from "firebase/firestore"; 
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"; 
-import PostDetails from "@/app/components/PostDetails"
+
 
 export default function CreatePost ( { isLoggedIn, userInformation } ) {
 
@@ -76,7 +76,6 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         <main>
             <h1>Create Post</h1>
             <CreatePostForm createPostFunction={createPostFunction}/> 
-            <PostDetails post={createdPost} />
         </main>
 
         </>

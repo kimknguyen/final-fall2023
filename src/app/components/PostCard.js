@@ -4,7 +4,10 @@ const PostCard = ({ post }) => {
     return (
         <div className={styles.PostCard}>
             <img src={post.imageURL} alt=""/> 
-            <p>{post.postContent}</p>
+            <h2>Post Details</h2>
+            <p>Artist: {post.postContent}</p>
+            <p>Favorite Song: {post.favoriteSong}</p>
+             <p>Your Experience: {post.experience}</p>
 
         </div>
     ); 

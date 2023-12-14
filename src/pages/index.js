@@ -33,7 +33,7 @@ export default function Dashboard( { isLoggedIn }) {
     return (
         <main>
         
-            <h1>Dashboard</h1>
+            <h1>Concert Diaries</h1>
             {allPosts.map((post, i) => (
                 <PostCard post={post} key={i}/>
             ))}
