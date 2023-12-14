@@ -19,6 +19,7 @@ export default function MyApp( { Component, pageProps }) {
 
     const createUser = useCallback((e) => {
         e.preventDefault(); 
+        //const name = e.currentTargt.name.value; 
         const email = e.currentTarget.email.value; 
         const password = e.currentTarget.password.value; 
         const auth = getAuth(); 
@@ -44,6 +45,7 @@ export default function MyApp( { Component, pageProps }) {
 
     const loginUser = useCallback((e) => {
         e.preventDefault(); 
+        //const name = e.currentTargt.name.value; 
         const email = e.currentTarget.email.value; 
         const password = e.currentTarget.password.value; 
         const auth = getAuth(); 

@@ -25,7 +25,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         const experience = e.currentTarget.experience.value; 
 
         let imageURL; 
-        const storageRef = ref(storage, imageUpload.name); 
+        const storageRef = ref(storage, 'images/' + imageUpload?.name); 
         
         await uploadBytes(storageRef, imageUpload)
             .then(async (snapshot) => {
@@ -43,7 +43,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
             postContent: postContent, 
             favoriteSong: favoriteSong, 
             experience: experience, 
-            usedId: userId, 
+            userId: userId, 
             imageURL, 
         }); 
 

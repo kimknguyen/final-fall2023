@@ -1,13 +1,7 @@
 import { useRouter } from "next/router";  
 import UserProfileCard from "@/app/components/UserProfileCard"
 import { useEffect, useState } from "react"; 
-import { 
-    query, 
-    where, 
-    getDocs, 
-    getFirestore,
-    collection 
-} from "firebase/firestore"; 
+import { query, where, getDocs, getFirestore, collection } from "firebase/firestore"; 
 
 
 export default function UserProfile( { isLoggedIn, loginInformation }) {
@@ -21,9 +15,9 @@ export default function UserProfile( { isLoggedIn, loginInformation }) {
     useEffect(() => {
         async function getUser() {
 
-           // if(!loginInformation?.uid) {
-             //   return; 
-           // }
+           if(!loginInformation?.uid) {
+             return; 
+           }
 
             let user = {}; 
             const db = getFirestore(); 
@@ -36,12 +30,11 @@ export default function UserProfile( { isLoggedIn, loginInformation }) {
                 user = doc.data(); 
             }); 
 
-            //if(loginInformation) {
-                setUser(user); 
+          
+            setUser(user); 
 
-            //}
+            }
 
-        }
        getUser(); 
     }, [loginInformation]); 
 
