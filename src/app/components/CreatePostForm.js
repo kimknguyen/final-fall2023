@@ -7,15 +7,18 @@ const CreatePostForm = ( { createPostFunction }) => {
     return (
         <div>
             <h2>Create Post Form</h2>
-            <form className={styles.form} onSubmit={(e) => createPostFunction(e, imageUpload)}>
+            <form className={styles.form} onSubmit={(e) => createPostFunction(e, imageUpload)} >
                 <label htmlFor= "postContent">Artist</label>
                 <input type="text" id="postContent" name="postContent" />
 
+                <label htmlFor= "date"> Date </label>
+                <input type="text" id="date" name="date" />
+
                 <label htmlFor= "favoriteSong"> Favorite Song</label>
-                <input type="text" id="postContent" name="favoriteSong" />
+                <input type="text" id="favoriteSong" name="favoriteSong" />
         
                 <label htmlFor= "experience"> Your Experience</label>
-                <input type="text" id="postContent" name="experience" placeholder="Share your experience and favorite moments of the show" />
+                <input type="text" id="experience" name="experience" placeholder="Share your experience and favorite moments of the show" />
 
                 
                 <label htmlFor="image">Image</label>
@@ -24,7 +27,7 @@ const CreatePostForm = ( { createPostFunction }) => {
                     id="image"
                     name="image"
                     placeholder="Choose image"
-                    accept="image/png.image/jpeg"
+                    accept="image/png,image/jpeg,image/gif"
                     onChange={(e) => {
                         setImageUpload(e.target.files[0]); 
                     }}

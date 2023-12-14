@@ -28,10 +28,15 @@
 }
 
 .PostCard{
-    display: flex; 
+    display: block; 
     flex-wrap: wrap; 
     gap: 20px; 
-    border: 2px solid black; 
+   
+    padding: 20px; 
+}
+
+.PostCard p {
+    font-size: 22 px;
 }
 
 .PostCardWrapper img {

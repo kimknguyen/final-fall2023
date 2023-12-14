@@ -25,14 +25,15 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         //console.log({postContent}); 
         const favoriteSong = e.currentTarget.favoriteSong.value; 
         const experience = e.currentTarget.experience.value; 
+        const date = e.currentTarget.date.value; 
 
         console.log("postContent:", postContent);
         console.log("favoriteSong:", favoriteSong);
         console.log("experience:", experience);
 
         let imageURL; 
-        //const storageRef = ref(storage, 'images/' + imageUpload?.name); 
-        const storageRef = ref(storage, imageUpload.name);
+        const storageRef = ref(storage, 'images/' + imageUpload?.name); 
+        //const storageRef = ref(storage, imageUpload.name);
         
         await uploadBytes(storageRef, imageUpload)
             .then(async (snapshot) => {
@@ -50,17 +51,12 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
             postContent: postContent, 
             favoriteSong: favoriteSong, 
             experience: experience, 
+            date: date, 
             userId: userId, 
             imageURL, 
         }); 
 
         if(data) {
-
-            setCreatedPost({
-                postContent, 
-                favoriteSong, 
-                experience, 
-            }); 
             router.push("/"); 
         }
         
