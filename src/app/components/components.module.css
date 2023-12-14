@@ -1,17 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+.customSubHeading{
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 35px;
+    margin: 50px; 
+}
+
+
 .Header{
     align-items: center;
     display: flex; 
     justify-content: flex-end;
     padding: 10px 25px; 
+
 }
 
 .HeaderNav a {
 
     color: black; 
+    font-family: 'Rubik Mono One', sans-serif;
     font-size: 20px; 
-    font-weight: bold; 
+    font-weight: bold;
     margin: 1 auto; 
-    padding: 3px; 
+    padding: 5px; 
     text-decoration: none;
 
 }
@@ -19,25 +31,45 @@
 .form {
     display: flex; 
     flex-direction: column;
+    gap: 20px; 
+    margin: 50px; 
+    font-family: 'Rock Salt', cursive; 
 
 }
 
 .UserProfile{
     border: 1px solid black; 
-    padding: 20px; 
+    margin: 50px; 
+    padding: 10px 30px; 
+
+
 }
+
+.UserProfile p{
+    font-size: 22 px;
+    font-family: 'Rock Salt', cursive; 
+}
+
 
 .PostCard{
     display: block; 
     flex-wrap: wrap; 
     gap: 20px; 
-   
-    padding: 20px; 
+    padding: 10px 20px; 
+    margin: 50px; 
+}
+
+.PostCard h2 {
+    font-size: 22 px;
+    font-family: 'Rubik Mono One', sans-serif;
 }
 
 .PostCard p {
     font-size: 22 px;
+    font-family: 'Rock Salt', cursive; 
 }
+
+
 
 .PostCardWrapper img {
     height: auto; 

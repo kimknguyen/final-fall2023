@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import CreatePostForm from "@/app/components/CreatePostForm"
 import {getFirestore, collection, addDoc} from "firebase/firestore"; 
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"; 
+import styles from "../app/components/components.module.css"
 
 
 export default function CreatePost ( { isLoggedIn, userInformation } ) {
@@ -26,6 +27,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         const favoriteSong = e.currentTarget.favoriteSong.value; 
         const experience = e.currentTarget.experience.value; 
         const date = e.currentTarget.date.value; 
+        const displayname = e.currentTarget.displayname.value; 
 
         console.log("postContent:", postContent);
         console.log("favoriteSong:", favoriteSong);
@@ -52,6 +54,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
             favoriteSong: favoriteSong, 
             experience: experience, 
             date: date, 
+            displayname: displayname, 
             userId: userId, 
             imageURL, 
         }); 
@@ -70,7 +73,7 @@ export default function CreatePost ( { isLoggedIn, userInformation } ) {
         <>
 
         <main>
-            <h1>Create Post</h1>
+            <h1 className={styles.customSubHeading}>Create Post</h1>
             <CreatePostForm createPostFunction={createPostFunction}/> 
         </main>
 

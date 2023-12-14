@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";  
 import { getDocs, getFirestore, collection } from "firebase/firestore"; 
 import PostCard from "../app/components/PostCard"; 
-//import styles from "./components.module.css"; 
+
 
 
 export default function Dashboard( { isLoggedIn }) {
@@ -32,8 +32,21 @@ export default function Dashboard( { isLoggedIn }) {
 
     return (
         <main>
-        
-            <h1>Concert Diaries</h1>
+            <div>
+                <style>
+                {`
+                    @import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
+
+                    .customHeading {
+                         font-family: 'Rubik Puddles', sans-serif;
+                         font-size: 115px; 
+                         text-align: center; 
+                         padding: 10px; 
+          }
+        `}
+                </style>
+            <h1 className="customHeading">Concert Chronicles</h1>
+            </div>
             {allPosts.map((post, i) => (
                 <PostCard post={post} key={i}/>
             ))}

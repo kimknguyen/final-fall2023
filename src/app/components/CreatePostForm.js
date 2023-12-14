@@ -6,8 +6,25 @@ const CreatePostForm = ( { createPostFunction }) => {
     const[imageUpload, setImageUpload] = useState(); 
     return (
         <div>
-            <h2>Create Post Form</h2>
+                <style>
+                {`
+                    @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+                    .customSub {
+                         font-family: 'Rubik Mono One', sans-serif;
+                         font-size: 20px; 
+                         margin: 50px; 
+                     
+
+          }
+        `}
+                </style>
+            <h2 className="customSub">Document your Concert Experience</h2>
             <form className={styles.form} onSubmit={(e) => createPostFunction(e, imageUpload)} >
+                
+                <label htmlFor= "displayname"> Who went? </label>
+                <input type="text" id="displayname" name="displayname" placeholder="Put your name and also the names of friends you went with" />
+                
                 <label htmlFor= "postContent">Artist</label>
                 <input type="text" id="postContent" name="postContent" />
 

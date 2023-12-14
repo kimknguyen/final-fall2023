@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import UserProfileCard from "@/app/components/UserProfileCard"
 import { useEffect, useState } from "react"; 
 import { query, where, getDocs, getFirestore, collection } from "firebase/firestore"; 
+import styles from "../app/components/components.module.css"
 
 
 export default function UserProfile( { isLoggedIn, loginInformation }) {
@@ -39,9 +40,8 @@ export default function UserProfile( { isLoggedIn, loginInformation }) {
     }, [loginInformation]); 
 
     return (
-        <main>
-        
-            <h1>User Profile</h1>
+        <main> 
+            <h1 className={styles.customSubHeading}>User Profile</h1>
             <UserProfileCard user={user} loginInformation={loginInformation} />
         </main>
 
